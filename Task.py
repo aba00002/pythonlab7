@@ -62,13 +62,13 @@ def checkCollision(obj,x,y,vx,vy,sx=127,sy=63):
     if y < 0 or y+h>63 or x + w>127 or x < 0:
         if y<0:
             y=0
-            vy +=vy
+            vy = vy
         if y+h>63:
             y=63-h
             vy = -vy
         if x<0:
             x=0
-            vx +=vx
+            vx = vx
         if x+w>127:
             x=127-w
             vx = -vx
@@ -85,12 +85,12 @@ def bouncingBall(obj,x,y,vx,vy,sx=127,sy=63):
             for j in range(0, len(obj[i])):
                 lcd.set_pixel(x+j,y+i,obj[i][j])
                 lcd.show()
-                time.sleep(.1)
-                lcd.clear()
-                x+=vx
-                y+=vy
-                lcd.show()
-                x,y,vx,vy=checkCollision(obj, x, y, vx, vy, sx, sy)
+        time.sleep(.1)
+        lcd.clear()
+        x+=vx
+        y+=vy
+        lcd.show()
+        x,y,vx,vy=checkCollision(obj, x, y, vx, vy, sx, sy)
         
 
 bouncingBall(ball,x,y,vx,vy,sx,sy)
