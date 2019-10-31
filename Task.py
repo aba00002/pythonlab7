@@ -39,8 +39,8 @@ ball =  [
 #function moves an object from position x,y to new position x+vx,y+vy. It returns the new coordinates x and y.
 x = 0
 y = 0
-vx = 2
-vy = 2
+vx = 10
+vy = 10
 def moveObject(obj,x,y,vx,vy):
     while x < 127 or y < 63:
         for i in range(0, len(obj)):
@@ -62,13 +62,13 @@ def checkCollision(obj,x,y,vx,vy,sx=127,sy=63):
     if y < 0 or y+h>63 or x + w>127 or x < 0:
         if y<0:
             y=0
-            vy = vy
+            vy = -vy
         if y+h>63:
             y=63-h
             vy = -vy
         if x<0:
             x=0
-            vx = vx
+            vx = -vx
         if x+w>127:
             x=127-w
             vx = -vx
